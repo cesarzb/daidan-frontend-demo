@@ -35,3 +35,25 @@ export const CREATE_EXPENDITURE = gql`
     }
   }
 `;
+
+export const UPDATE_EXPENDITURE = gql`
+  mutation UpdateExpenditure($id: ID!, $name: String!, $cost: Float!) {
+    updateExpenditure(id: $id, name: $name, cost: $cost) {
+      id
+      name
+      cost
+      user {
+        name
+        email
+      }
+    }
+  }
+`;
+
+export const DELETE_EXPENDITURE = gql`
+  mutation DeleteExpenditure($id: ID!) {
+    deleteExpenditure(id: $id) {
+      id
+    }
+  }
+`;
